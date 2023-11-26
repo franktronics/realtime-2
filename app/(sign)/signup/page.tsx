@@ -30,6 +30,7 @@ import { ref, set } from "firebase/database"
 import { getEltObject } from "@/config/elements"
 import { getActionObject } from "@/config/actions"
 import * as yup from "yup"
+import { ImagesConfig } from "@/config/images"
 
 type SignupDataProps = {
     email: string
@@ -75,6 +76,7 @@ export default function Signup() {
                 email: data.email,
                 elements: [getEltObject()],
                 actions: { ...getActionObject() },
+                images: [{ ...ImagesConfig }],
             })
             toast.success("Utilisateur cree")
             setState("finish")

@@ -107,7 +107,7 @@ const LayoutDash = memo((props: PropsWithChildren<LayoutSignProps>) => {
                 </Flex>
                 <Box
                     flex="1"
-                    maxW={600}
+                    maxW={1000}
                     width={"calc(100% - 20px)"}
                     p="20px"
                     m="10px"
