@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+.home-dash-container {
+  padding: 28px;
+
+  @media all and (max-width: 640px) {
+    padding: 20px 10px;
+  }
+}
+
+
+/*.toast-custom-body {
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%), 0 2px 10px 0 rgb(0 0 0 / 5%) !important;
+    --toastify-color-light: var(--chakra-colors-white);
+    --toastify-color-dark: var(--chakra-colors-white);
+    --toastify-color-info: var(--chakra-colors-info);
+    --toastify-color-success: var(--chakra-colors-success);
+    --toastify-color-warning: var(--chakra-colors-warning);
+    --toastify-color-error: var(--chakra-colors-error);
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-warning: var(--toastify-color-warning);
+    --toastify-icon-color-error: var(--toastify-color-error);
+
+    --toastify-toast-width: 320px;
+    --toastify-toast-background: #fff;
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-font-family: var(--chakra-fonts-body);
+    --toastify-z-index: 9999;
+
+    --toastify-text-color-light: #757575;
+    --toastify-text-color-dark: #fff;
+    --toastify-color-progress-info: var(--chakra-colors-info);
+    --toastify-color-progress-success: var(--chakra-colors-success);
+    --toastify-color-progress-warning: var(--chakra-colors-warning);
+    --toastify-color-progress-error: var(--chakra-colors-error);
+}*/
