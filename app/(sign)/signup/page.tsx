@@ -1,3 +1,5 @@
+"use client"
+
 import { LayoutSign } from "@/components/shared/LayoutSign"
 import { useToggle } from "@/hooks/useToggle"
 import logo from "@/public/img/logo.svg"
@@ -38,8 +40,11 @@ type SignupDataProps = {
 let signupSchema = yup.object().shape({
     name: yup.string().required("Entrer votre nom"),
     email: yup.string().email("Entrer une adresse valide").required("Email est obligatoire"),
-    password: yup.string().min(6, "Au moins 6 caractères"),
-    checkPassword: yup.string().oneOf([yup.ref("password")], "Ne correspond pas"),
+    password: yup.string().min(6, "Au moins 6 caractères").required("Mot de passe obligatoire"),
+    checkPassword: yup
+        .string()
+        .oneOf([yup.ref("password")], "Ne correspond pas")
+        .required(),
 })
 
 export default function Signup() {
@@ -94,7 +99,7 @@ export default function Signup() {
             <LayoutSign title={"Creez votre compte"} logo={logo}>
                 <form onSubmit={handleSubmit(submit)}>
                     <Box>
-                        <FormControl mb="20px" isInvalid={errors.email ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.email}>
                             <FormLabel>Email</FormLabel>
                             <Input
                                 {...register("email")}
@@ -109,7 +114,7 @@ export default function Signup() {
                                 <FormHelperText>Fait office d&apos;identifiant</FormHelperText>
                             )}
                         </FormControl>
-                        <FormControl mb="20px" isInvalid={errors.name ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.name}>
                             <FormLabel>Nom</FormLabel>
                             <Input {...register("name")} type="text" placeholder="Adrien" />
                             {errors.name ? (
@@ -120,7 +125,7 @@ export default function Signup() {
                                 <FormHelperText>Votre nom d&apos;utilisateur</FormHelperText>
                             )}
                         </FormControl>
-                        <FormControl mb="20px" isInvalid={errors.password ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.password}>
                             <FormLabel>Mot de passe</FormLabel>
                             <InputGroup>
                                 <Input
@@ -146,7 +151,7 @@ export default function Signup() {
                                 <FormHelperText>Au moins 6 caractères</FormHelperText>
                             )}
                         </FormControl>
-                        <FormControl mb="20px" isInvalid={errors.checkPassword ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.checkPassword}>
                             <FormLabel>Vérifier</FormLabel>
                             <Input
                                 {...register("checkPassword")}

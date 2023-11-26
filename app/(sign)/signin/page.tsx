@@ -1,3 +1,5 @@
+"use client"
+
 import { LayoutSign } from "@/components/shared/LayoutSign"
 import { useToggle } from "@/hooks/useToggle"
 import logo from "@/public/img/logo.svg"
@@ -33,7 +35,7 @@ type SigninDataProps = {
 }
 let signupSchema = yup.object().shape({
     email: yup.string().email("Entrer une adresse valide").required("Email est obligatoire"),
-    password: yup.string().min(6, "Au moins 6 caractères"),
+    password: yup.string().min(6, "Au moins 6 caractères").required("Mot de passe obligatoire"),
 })
 
 export default function Page() {
@@ -86,7 +88,7 @@ export default function Page() {
             <LayoutSign title={"Connectez vous"} logo={logo}>
                 <form onSubmit={handleSubmit(submit)}>
                     <Box>
-                        <FormControl mb="20px" isInvalid={errors.email ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.email}>
                             <FormLabel>Email</FormLabel>
                             <Input
                                 {...register("email")}
@@ -101,7 +103,7 @@ export default function Page() {
                                 <FormHelperText>Email de votre compte</FormHelperText>
                             )}
                         </FormControl>
-                        <FormControl mb="20px" isInvalid={errors.password ? true : false}>
+                        <FormControl mb="20px" isInvalid={!!errors.password}>
                             <FormLabel>Mot de passe</FormLabel>
                             <InputGroup>
                                 <Input
