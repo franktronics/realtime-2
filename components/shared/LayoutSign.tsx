@@ -1,11 +1,9 @@
 import { Box, Text, Flex, Badge } from "@chakra-ui/react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import { PropsWithChildren, memo } from "react"
-import { StaticImageData } from "next/dist/client/image"
 import { motion } from "framer-motion"
 import ButtonTheme from "@/components/ui/btn/button-theme"
 import { useDashboard } from "@/context/dashboard.context"
-import { ToastContainer } from "react-toastify"
 
 /* eslint-disable-next-line */
 export interface LayoutSignProps {

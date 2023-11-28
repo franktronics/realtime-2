@@ -65,7 +65,7 @@ export default function Home() {
                         <Text fontSize={"3xl"}>Image</Text>
                         <Box>{valueImgs.length >= 1 && <ImageCard data={valueImgs} />}</Box>
                     </Box>
-                    <Box>
+                    <Box w={"min-content"}>
                         <Text fontSize={"3xl"}>Boutons</Text>
                         <Flex gap={10} flexWrap={"wrap"} pt={2} pb={2}>
                             {ActionsConfig.map((action) => {

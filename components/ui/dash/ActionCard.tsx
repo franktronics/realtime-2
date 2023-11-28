@@ -1,6 +1,6 @@
 import { auth, database } from "@/config/firebase"
 import { useUser } from "@/context/user.context"
-import { Flex, FormLabel, Switch } from "@chakra-ui/react"
+import { Box, Flex, FormControl, FormLabel, Switch } from "@chakra-ui/react"
 import { onAuthStateChanged } from "firebase/auth"
 import { onValue, ref, set } from "firebase/database"
 import { ChangeEvent, useEffect, useId, useState } from "react"
@@ -37,9 +37,11 @@ export const ActionCard = (props: ActionCardProps) => {
     }, [])
 
     return (
-        <Flex alignItems={"center"} display={"inline-block"}>
-            <FormLabel htmlFor={idInput}>{name}</FormLabel>
-            <Switch id={idInput} size="lg" isChecked={state} onChange={handleChange} />
-        </Flex>
+        <Box display={"inline-block"}>
+            <FormControl alignItems={"center"} display={"flex"}>
+                <FormLabel htmlFor={idInput}>{name}</FormLabel>
+                <Switch id={idInput} size="lg" isChecked={state} onChange={handleChange} />
+            </FormControl>
+        </Box>
     )
 }
