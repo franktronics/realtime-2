@@ -85,6 +85,12 @@ const LayoutDash = memo((props: PropsWithChildren<LayoutSignProps>) => {
                                 </MenuItem>
                                 <MenuItem>
                                     <Text fontWeight={"bold"} pr="1">
+                                        Nom:{" "}
+                                    </Text>
+                                    {userContext.name || ""}
+                                </MenuItem>
+                                <MenuItem>
+                                    <Text fontWeight={"bold"} pr="1">
                                         Id:{" "}
                                     </Text>
                                     {userContext.id || ""}
