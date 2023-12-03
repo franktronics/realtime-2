@@ -69,9 +69,7 @@ export default function Home() {
                         <Text fontSize={"3xl"}>Boutons</Text>
                         <Flex gap={10} flexWrap={"wrap"} pt={2} pb={2}>
                             {ActionsConfig.map((action) => {
-                                return (
-                                    <ActionCard key={action.id} id={action.id} name={action.name} />
-                                )
+                                return <ActionCard key={action.id} data={action} />
                             })}
                         </Flex>
                     </Box>

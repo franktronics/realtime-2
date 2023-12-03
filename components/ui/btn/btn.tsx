@@ -34,9 +34,22 @@ export const Button = defineStyleConfig({
             color: "#fff",
             _hover: {
                 bg: "error",
+                opacity: 0.8,
             },
             _disabled: {
                 bg: "error",
+                color: "#fff",
+                opacity: 0.5,
+            },
+        },
+        alert: {
+            bg: "orange.400",
+            color: "#fff",
+            _hover: {
+                bg: "orange.300",
+            },
+            _disabled: {
+                bg: "orange.400",
                 color: "#fff",
                 opacity: 0.5,
             },

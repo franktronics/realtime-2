@@ -1,16 +1,17 @@
 import { auth, database } from "@/config/firebase"
 import { useUser } from "@/context/user.context"
-import { Box, Flex, FormControl, FormLabel, Switch } from "@chakra-ui/react"
+import { Box, Flex, FormControl, FormLabel, Switch, Text } from "@chakra-ui/react"
 import { onAuthStateChanged } from "firebase/auth"
 import { onValue, ref, set } from "firebase/database"
 import { ChangeEvent, useEffect, useId, useState } from "react"
+import { ActionsConfigType } from "@/config/actions"
 
 export type ActionCardProps = {
-    name: string
-    id: string
+    data: ActionsConfigType
 }
 export const ActionCard = (props: ActionCardProps) => {
-    const { name, id } = props
+    const { name, id, marker } = props.data
+
     const idInput = useId()
     const [state, setState] = useState(false)
     const userContext = useUser()
@@ -38,9 +39,22 @@ export const ActionCard = (props: ActionCardProps) => {
 
     return (
         <Box display={"inline-block"}>
-            <FormControl alignItems={"center"} display={"flex"}>
-                <FormLabel htmlFor={idInput}>{name}</FormLabel>
-                <Switch id={idInput} size="lg" isChecked={state} onChange={handleChange} />
+            <FormControl>
+                <FormLabel htmlFor={idInput} m={0} mr={5}>
+                    {name}
+                </FormLabel>
+                <Box gap={2} pt={2} display={"grid"} gridTemplateColumns={"auto auto auto"}>
+                    <Text
+                        w={"80px"}
+                        overflow={"hidden"}
+                        textOverflow={"ellipsis"}
+                        whiteSpace={"nowrap"}
+                    >
+                        {marker.off}
+                    </Text>
+                    <Switch id={idInput} size="lg" isChecked={state} onChange={handleChange} />
+                    <Text>{marker.on}</Text>
+                </Box>
             </FormControl>
         </Box>
     )

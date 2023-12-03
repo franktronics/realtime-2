@@ -19,7 +19,7 @@ export const ImageCard = (props: ImageCardProps) => {
     let indexImage = 0
     const image = data.find((img, k) => {
         indexImage = k
-        return img.status === -1
+        return img.status === 0
     })
 
     const handleBtn = (status: ImagesConfigType["status"], index: number) => {
@@ -65,9 +65,16 @@ export const ImageCard = (props: ImageCardProps) => {
                         <Button
                             type={"submit"}
                             variant={"warning"}
-                            onClick={() => handleBtn(0, indexImage)}
+                            onClick={() => handleBtn(-1, indexImage)}
                         >
                             NOK
+                        </Button>
+                        <Button
+                            type={"submit"}
+                            variant={"alert"}
+                            onClick={() => handleBtn(2, indexImage)}
+                        >
+                            A revoir
                         </Button>
                     </>
                 )}
